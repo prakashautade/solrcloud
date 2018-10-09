@@ -1,0 +1,2 @@
+# solrcloud
+Using SolrCloud
