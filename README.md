@@ -6,8 +6,8 @@
   - Query distribution and load balancing.
   - Fault tolerant.
 # SolrCloud concepts
-![](https://github.com/prakashautade/solrcloud/blob/master/SolrCloud.png)
-![](https://github.com/prakashautade/solrcloud/blob/master/SolrCloudDetail.png)
+<img src="https://github.com/prakashautade/solrcloud/blob/master/SolrCloud.png" alt="SolrCloud" width="600" height="375">
+<img src="https://github.com/prakashautade/solrcloud/blob/master/SolrCloudDetail.png" alt="SolrCloudDetail" width="600" height="375">
 ### Collection
 - Collection is logical set of documents and its indices.
 ### Shards
