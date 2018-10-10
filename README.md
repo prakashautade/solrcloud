@@ -43,7 +43,7 @@
 - When a document is sent to a Solr node for indexing, the system first determines which Shard that document belongs to Then which node is currently hosting the leader for that shard.
 - The document is then forwarded to the current leader for indexing.
 - The leader forwards the update to all of the other replicas.
-    Document search
+#### Document search
 - When a Solr node receives a search request.
 - The request is routed behind the scenes to a replica of a shard that is part of the collection being searched.
 - The chosen replica acts as an aggregator:
