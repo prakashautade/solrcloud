@@ -56,15 +56,15 @@
 - That node will determine if it hosts the leader for the appropriate shard, and if not it will forward the request to the the leader, which will then forward it to all existing replicas.
 - If the leader goes down, another replica can take its place.
 - Recovery
-1. A Transaction Log is created for each node so that every change to content or organization is noted.
-2. The log is used to determine which content in the node should be included in a replica.
-3. When a new replica is created, it refers to the Leader and the Transaction Log to know which content to include. If it fails, it retries.
-4. Since the Transaction Log consists of a record of updates, it allows for more robust indexing because it includes redoing the uncommitted updates if indexing is interrupted.
-5. If a leader goes down, it may have sent requests to some replicas and not others. 
-6. So when a new potential leader is identified, it runs a synch process against the other replicas. If this is successful, everything should be consistent, the leader registers as active, and normal actions proceed. 
-7. If a replica is too far out of sync, the system asks for a full replication/replay-based recovery.
-8. If an update fails because cores are reloading schemas and some have finished but others have not, the leader tells the nodes that the update failed and starts the recovery procedure.
-9. This architecture enables you to be certain that your data can be recovered in the event of a disaster, even if you are using Near Real Time Searching.
+  - A Transaction Log is created for each node so that every change to content or organization is noted.
+  - The log is used to determine which content in the node should be included in a replica.
+  - When a new replica is created, it refers to the Leader and the Transaction Log to know which content to include. If it fails, it retries.
+  - Since the Transaction Log consists of a record of updates, it allows for more robust indexing because it includes redoing the uncommitted updates if indexing is interrupted.
+  - If a leader goes down, it may have sent requests to some replicas and not others.
+  - So when a new potential leader is identified, it runs a synch process against the other replicas. If this is successful, everything should be consistent, the leader registers as active, and normal actions proceed.
+  - If a replica is too far out of sync, the system asks for a full replication/replay-based recovery.
+  - If an update fails because cores are reloading schemas and some have finished but others have not, the leader tells the nodes that the update failed and starts the recovery procedure.
+  - This architecture enables you to be certain that your data can be recovered in the event of a disaster, even if you are using Near Real Time Searching.
 #### Read Side Fault Tolerance
 - In a SolrCloud cluster each individual node load balances read requests across all the replicas in a collection.
 - You still need a load balancer on the 'outside' that talks to the cluster.
